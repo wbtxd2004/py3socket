@@ -31,8 +31,10 @@ while True:
     # 建立客户端连接
     cs, addr = serversocket.accept()
     # print("get connected from:", addr)
-    cs.send(b"hello I am server, welcome")
+    cs.send(b"begin")
     ra = cs.recv(1024)
+    cs.send(ra)
+    cs.send(b"over")
     # print(ra)
     cs.close()
     now_time = time.strftime("%Y%m%d_%H%M%S", time.localtime())

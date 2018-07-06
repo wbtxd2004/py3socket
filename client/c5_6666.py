@@ -19,7 +19,7 @@ port = 6666
 # 连接服务，指定主机和端口
 client.connect((host, port))
 while True:
-    data = client.recv(1024)
-    print("the data received is:",data)
+    # data = client.recv(1024)
+    # print("the data received is:",data)
     client.send(b"hihi I am client")
     client.close()
