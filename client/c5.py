@@ -14,7 +14,7 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host = '47.104.170.183'
 
 # 设置端口号
-port = 6666
+port = 9999
 
 # 连接服务，指定主机和端口
 client.connect((host, port))
