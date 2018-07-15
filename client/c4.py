@@ -15,6 +15,7 @@ def dataSwitch(data):
         str1 = data[0:2]
         s = int(str1,16)
         x = struct.pack('B',s)
+        # print(x)
         str2 += x
         # str2 += struct.pack('B',s)
         data = data[2:]
@@ -24,7 +25,7 @@ if __name__ == "__main__":
     # 创建 socket 对象"
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # 获取本地主机名
-    host = socket.gethostname()
+    # host = socket.gethostname()
     host = '47.104.170.183'
     # 设置端口号
     port = 9999
@@ -34,10 +35,13 @@ if __name__ == "__main__":
         data = input(">:")
         if not data:
             break
-        client.send(dataSwitch(data))
-        data = client.recv(1024)
-        if not data:
+        if data == "00":
             break
-        print(data)
+        client.send(dataSwitch(data))
+        data_r = client.recv(1024)
+        if not data_r:
+            break
+        print(data_r)
+        break
     client.close()
     # B1C2FF82
